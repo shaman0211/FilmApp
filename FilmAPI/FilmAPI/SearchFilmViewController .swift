@@ -11,7 +11,7 @@ class SearchFilmViewController: UICollectionViewController {
     
     var films: [Film] = []
     
-    
+    let coreData = DataBaseService(coreDataStack: CoreDataStack())
     
     let networkService: FilmNetworkServiceProtocol
     lazy var searchController = UISearchController()
@@ -101,6 +101,10 @@ extension SearchFilmViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilmCellCollectionView.identifier, for: indexPath) as? FilmCellCollectionView
         cell?.setupData(film: films[indexPath.item])
+        cell?.saveButtonTapDelegate = {
+            self.coreData.writeFilm(with: self.films[indexPath.item])
+            print(self.coreData.allFilms().count)
+        }
         return cell ?? UICollectionViewCell()
     }
     
