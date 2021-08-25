@@ -9,9 +9,13 @@ import UIKit
 
 struct GetFilmResponse: Decodable {
     let results: [Film]
+    
+    init(results: [Film]) {
+        self.results = results
+    }
 }
 
-struct Film: Decodable {
+struct Film: Decodable, Equatable {
     var title: String
     var posterPath: String
     var voteAverage: Double
@@ -45,13 +49,22 @@ struct Film: Decodable {
     init(with filmMO: MOFilm) {
         self.title = filmMO.title ?? "-"
         self.posterPath = filmMO.posterPath ?? "-"
-        self.voteAverage = filmMO.voteAverage ?? 0.0
+        self.voteAverage = filmMO.voteAverage
         self.genreIds = filmMO.genreIds ?? [1]
-        self.id = Int(filmMO.id) ?? 0
+        self.id = Int(filmMO.id)
         self.releaseDate = filmMO.releaseDate ?? "-"
         self.overview = filmMO.overview ?? "-"
     }
     
+    init(title: String) {
+        self.title = title
+        posterPath = " "
+        voteAverage = 0.0
+        genreIds = [0]
+        id = 0
+        releaseDate = " "
+        overview = " "
+    }
 }
 
 

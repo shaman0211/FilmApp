@@ -22,7 +22,6 @@ final class FilmNetworkService  {
 }
 
 extension FilmNetworkService: FilmNetworkServiceProtocol {
-   // typealias GetFilmAPIResponse = Result<GetFilmResponse, NetworkServiceError>
     private func genericFetch<T: Decodable>(urlString: String, completion: @escaping (Result<T, NetworkServiceError>) -> Void) {
         
         guard let url = URL(string: urlString) else { return }
@@ -45,7 +44,7 @@ extension FilmNetworkService: FilmNetworkServiceProtocol {
     
     
     func getFilm(completion: @escaping (GetFilmAPIResponse) -> Void) {
-        let urlString = "https://api.themoviedb.org/3/movie/top_rated?api_key=\(apiKey)&language=en-US&page=1"
+        let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)&language=en-US&page=1"
         genericFetch(urlString: urlString, completion: completion)
     }
     
@@ -62,7 +61,6 @@ extension FilmNetworkService: FilmNetworkServiceProtocol {
                 completion(data)
             }
         }.resume()
-        //genericFetch(urlString: urlString, completion: completion)
     }
     
     func searchFilm(query: String, completion: @escaping (GetFilmAPIResponse) -> Void) {

@@ -21,26 +21,12 @@ final class FilmInfoView: UIView {
         return gradient
     }()
     
-//    let navigationBar: UINavigationBar = {
-//        let navigationBar = UINavigationBar(frame: .zero)
-//        navigationBar.translatesAutoresizingMaskIntoConstraints = false
-//        navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationBar.shadowImage = UIImage()
-//        navigationBar.isTranslucent = true
-//        let navItem = UINavigationItem()
-//        let doneItem = UIBarButtonItem(systemItem: .save)
-//        navItem.rightBarButtonItem = doneItem
-//        navigationBar.setItems([navItem], animated: false)
-//        return navigationBar
-//    }()
-//
     private lazy var overviewTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Overview"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
-        //label.backgroundColor = .red
         return label
     }()
     
@@ -50,7 +36,6 @@ final class FilmInfoView: UIView {
         label.text = "Release Date"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
-        //label.backgroundColor = .red
         return label
     }()
     
@@ -59,7 +44,6 @@ final class FilmInfoView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
-        //label.backgroundColor = .red
         return label
     }()
     
@@ -69,7 +53,6 @@ final class FilmInfoView: UIView {
         label.textColor = .white
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
-        //label.backgroundColor = .red
         return label
     }()
     
@@ -79,7 +62,6 @@ final class FilmInfoView: UIView {
         imageView.backgroundColor = .blue
         imageView.layer.cornerRadius = 35
         imageView.layer.masksToBounds = true
-        //imageView.backgroundColor = .red
         return imageView
     }()
     
@@ -89,7 +71,6 @@ final class FilmInfoView: UIView {
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
         label.numberOfLines = 0
-        //label.backgroundColor = .red
         return label
     }()
     
@@ -98,7 +79,6 @@ final class FilmInfoView: UIView {
         label.textColor = .lightText
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
         label.translatesAutoresizingMaskIntoConstraints = false
-        //label.backgroundColor = .red
         return label
     }()
     
@@ -107,15 +87,7 @@ final class FilmInfoView: UIView {
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
         label.translatesAutoresizingMaskIntoConstraints = false
-        //label.backgroundColor = .red
         return label
-    }()
-    
-    lazy var saveButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .red
-        return button
     }()
     
     func setupData(film: Film) {
@@ -146,7 +118,7 @@ final class FilmInfoView: UIView {
         
         layer.addSublayer(gradient)
         
-        let views = [poster, title, genre, voteAverage, overview, overviewTitle, releaseDateTitle, releaseDate, saveButton]
+        let views = [poster, title, genre, voteAverage, overview, overviewTitle, releaseDateTitle, releaseDate]
         
         views.forEach {
             addSubview($0)
@@ -181,15 +153,6 @@ final class FilmInfoView: UIView {
             
             releaseDate.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             releaseDate.topAnchor.constraint(equalTo: releaseDateTitle.bottomAnchor, constant: 10),
-            
-//            navigationBar.heightAnchor.constraint(equalToConstant: 44),
-//            navigationBar.widthAnchor.constraint(equalTo: widthAnchor),
-//            navigationBar.centerXAnchor.constraint(equalTo: centerXAnchor)
-            saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            saveButton.heightAnchor.constraint(equalToConstant: 50),
-            saveButton.widthAnchor.constraint(equalToConstant: 250),
-            saveButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
             
         ])
     }

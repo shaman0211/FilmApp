@@ -8,7 +8,11 @@
 import CoreData
 
 protocol DataBaseProtocol {
-    
+    func writeFilm(with filmDTO: Film)
+    func allFilms()
+    func readFilm(with predicate: NSPredicate) -> [Film]
+    func deleteFilm(with film: Film)
+    func deleteAll()
 }
 
 final class DataBaseService {
