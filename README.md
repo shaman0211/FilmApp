@@ -12,3 +12,5 @@
 Экран с подробной информацией о фильме
 ![image](https://user-images.githubusercontent.com/34156108/130794106-cfc56bf4-bca0-4ae3-93cb-9d34449cf85b.png)
 
+
+<img src="https://user-images.githubusercontent.com/34156108/130794106-cfc56bf4-bca0-4ae3-93cb-9d34449cf85b.png" width="200" />
